@@ -5,7 +5,7 @@ import './App.css';
 function App() {
 
   const [board, setBoard] = useState([
-    null, null, null, 
+    null, 1, 2, 
     null, null, null, 
     null, null, null, 
   ])
@@ -13,9 +13,11 @@ function App() {
 
 
   return (
-    <div className="main">
+    <div className='main'>
       <DrawBoard Board={board}/>
     </div>
+      
+   
   );
 }
 
