@@ -24,144 +24,73 @@ function DrawBoard(props){
             
             height : `${3*size}px`,
             width: `${3*size}`,
+        },
+        p: {
+            margin: 0,
+            fontSize: 200,
+            marginTop: -40,
+            marginLeft: -10,
         }
     }
 
-    function clicked0(e){
+
+    function winCondition(){ 
+
+        const wins = [
+            [0, 1, 2], 
+            [3, 4, 5],
+            [6, 7, 8], 
+            [0, 4, 8],
+            [2, 4, 6], 
+            [0, 3, 6],
+            [1, 4, 7], 
+            [2, 5, 8]
+        ]
+
+        const values = props.Values()
+        
+        
+            for (let j=0; j<wins.length; j++){
+                const [a, b, c] = wins[j];
+                if ( 
+                    values[a]===values[b] && 
+                    values[b]===values[c] && 
+                    values[a]===values[c] 
+                ){
+                    if (values[a]===1) {
+                        alert ('X wins')
+                        setTimeout(props.resetBoard, 1000)
+                    }    
+                    else if (values[a]===2){
+                        alert ('O wins')
+                        setTimeout(props.resetBoard, 1000)
+                    } 
+                    
+                }
+            }
+            
+          
+        
+    }
+
+    function clicked(e, id){
         e.preventDefault();
         
-        if (props.Values()[0]===0){
+        if (props.Values()[id]===0){
             if (props.turn===1){
-                props.changeX(0)
+                props.changeX(id)
                 props.setTurn(props.turn+1)
             }
              else {
-                 props.changeO(0)
+                 props.changeO(id)
                  props.setTurn(props.turn-1)
              }    
         }
        else alert('The field is not empty')
+
+       winCondition()
     }
-    function clicked1(e){
-        e.preventDefault();
-        
-        if (props.Values()[1]===0){
-            if (props.turn===1){
-                props.changeX(1)
-                props.setTurn(props.turn+1)
-            }
-             else {
-                 props.changeO(1)
-                 props.setTurn(props.turn-1)
-             }    
-        }
-       else alert('The field is not empty')
-    }
-    function clicked2(e){
-        e.preventDefault();
-        
-        if (props.Values()[2]===0){
-            if (props.turn===1){
-                props.changeX(2)
-                props.setTurn(props.turn+1)
-            }
-             else {
-                 props.changeO(2)
-                 props.setTurn(props.turn-1)
-             }    
-        }
-       else alert('The field is not empty')
-    }
-    function clicked3(e){
-        e.preventDefault();
-        
-        if (props.Values()[3]===0){
-            if (props.turn===1){
-                props.changeX(3)
-                props.setTurn(props.turn+1)
-            }
-             else {
-                 props.changeO(3)
-                 props.setTurn(props.turn-1)
-             }    
-        }
-       else alert('The field is not empty')
-    }
-    function clicked4(e){
-        e.preventDefault();
-        
-        if (props.Values()[4]===0){
-            if (props.turn===1){
-                props.changeX(4)
-                props.setTurn(props.turn+1)
-            }
-             else {
-                 props.changeO(4)
-                 props.setTurn(props.turn-1)
-             }    
-        }
-       else alert('The field is not empty')
-    }
-    function clicked5(e){
-        e.preventDefault();
-        
-        if (props.Values()[5]===0){
-            if (props.turn===1){
-                props.changeX(5)
-                props.setTurn(props.turn+1)
-            }
-             else {
-                 props.changeO(5)
-                 props.setTurn(props.turn-1)
-             }    
-        }
-       else alert('The field is not empty')
-    }
-    function clicked6(e){
-        e.preventDefault();
-        
-        if (props.Values()[6]===0){
-            if (props.turn===1){
-                props.changeX(6)
-                props.setTurn(props.turn+1)
-            }
-             else {
-                 props.changeO(6)
-                 props.setTurn(props.turn-1)
-             }    
-        }
-       else alert('The field is not empty')
-    }
-    function clicked7(e){
-        e.preventDefault();
-        
-        if (props.Values()[7]===0){
-            if (props.turn===1){
-                props.changeX(7)
-                props.setTurn(props.turn+1)
-            }
-             else {
-                 props.changeO(7)
-                 props.setTurn(props.turn-1)
-             }    
-        }
-       else alert('The field is not empty')
-    }
-    function clicked8(e){
-        e.preventDefault();
-        
-        if (props.Values()[8]===0){
-            if (props.turn===1){
-                props.changeX(8)
-                props.setTurn(props.turn+1)
-            }
-             else {
-                 props.changeO(8)
-                 props.setTurn(props.turn-1)
-             }    
-        }
-       else alert('The field is not empty')
-    }
+   
 
 
     function renderElement(Element){
@@ -178,42 +107,42 @@ function DrawBoard(props){
         <div className='main' style={Styles.body}>
 
             <div style={Styles.div}>
-                <button style={Styles.button} onClick={clicked0}>
-                    {renderElement(props.Values()[0])}
+                <button style={Styles.button} onClick={(event)=>{return clicked(event, 0)}}>
+                    <p style={Styles.p}>{renderElement(props.Values()[0])}</p>
                 </button>
-                <button style={Styles.button} onClick={clicked1}>
-                    {renderElement(props.Values()[1])}
+                <button style={Styles.button} onClick={(event)=>{return clicked(event, 1)}}>
+                    <p style={Styles.p}>{renderElement(props.Values()[1])}</p>
                 </button>
-                <button style={Styles.button} onClick={clicked2}>
-                    {renderElement(props.Values()[2])}
-                </button>
-            </div>
-
-            <p style={{margin:  '0px'}}/>
-
-            <div style={Styles.div}>
-                <button style={Styles.button} onClick={clicked3}>
-                    {renderElement(props.Values()[3])}
-                </button>
-                <button style={Styles.button} onClick={clicked4}>
-                    {renderElement(props.Values()[4])}
-                </button>
-                <button style={Styles.button} onClick={clicked5}>
-                    {renderElement(props.Values()[5])}
+                <button style={Styles.button} onClick={(event)=>{return clicked(event, 2)}}>
+                    <p style={Styles.p}>{renderElement(props.Values()[2])}</p>
                 </button>
             </div>
 
             <p style={{margin:  '0px'}}/>
 
             <div style={Styles.div}>
-                <button style={Styles.button} onClick={clicked6}>
-                    {renderElement(props.Values()[6])}
+                <button style={Styles.button} onClick={(event)=>{return clicked(event, 3)}}>
+                    <p style={Styles.p}>{renderElement(props.Values()[3])}</p>
                 </button>
-                <button style={Styles.button} onClick={clicked7}>
-                    {renderElement(props.Values()[7])}
+                <button style={Styles.button} onClick={(event)=>{return clicked(event, 4)}}>
+                    <p style={Styles.p}>{renderElement(props.Values()[4])}</p>
                 </button>
-                <button style={Styles.button} onClick={clicked8}>
-                    {renderElement(props.Values()[8])}
+                <button style={Styles.button} onClick={(event)=>{return clicked(event, 5)}}>
+                    <p style={Styles.p}>{renderElement(props.Values()[5])}</p>
+                </button>
+            </div>
+
+            <p style={{margin:  '0px'}}/>
+
+            <div style={Styles.div}>
+                <button style={Styles.button} onClick={(event)=>{return clicked(event, 6)}}>
+                    <p style={Styles.p}>{renderElement(props.Values()[6])}</p>
+                </button>
+                <button style={Styles.button} onClick={(event)=>{return clicked(event, 7)}}>
+                    <p style={Styles.p}>{renderElement(props.Values()[7])}</p>
+                </button>
+                <button style={Styles.button} onClick={(event)=>{return clicked(event, 8)}}>
+                    <p style={Styles.p}>{renderElement(props.Values()[8])}</p>
                 </button>
             </div>
                     

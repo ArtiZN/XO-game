@@ -32,6 +32,14 @@ function App() {
       
     }))
   }
+  function resetBoard(){
+    setTemp(1)
+    setBoard(board.map(element=>{
+      element.value=0
+      return element
+    })
+    )
+  }
 
 
   const getValues = function() {
@@ -42,7 +50,7 @@ function App() {
 
   return (
       <>
-      <DrawBoard Board={board} Values={getValues} turn={temp} setTurn={setTemp} setBoard={setBoard} changeX={changeX} changeO={changeO}/>
+      <DrawBoard Board={board} Values={getValues} turn={temp} setTurn={setTemp} setBoard={setBoard} changeX={changeX} changeO={changeO} resetBoard={resetBoard}/>
       </>
   );
 }
