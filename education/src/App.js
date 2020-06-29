@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DrawBoard from './Actions/DrawBoard'
 import './App.css';
+import MovesBoard from './Actions/MovesBoard';
 
 function App() {
 
@@ -50,7 +51,26 @@ function App() {
 
   return (
       <>
-      <DrawBoard Board={board} Values={getValues} turn={temp} setTurn={setTemp} setBoard={setBoard} changeX={changeX} changeO={changeO} resetBoard={resetBoard}/>
+        <div style={{display: 'flex'}}>
+          <div id='left'>
+
+          </div>
+
+          <div id='middle'>
+           <DrawBoard 
+              Board={board} Values={getValues} 
+              turn={temp} setTurn={setTemp} setBoard={setBoard} 
+              changeX={changeX} changeO={changeO} 
+              resetBoard={resetBoard}
+            />
+          </div>
+
+          <div id='right'>
+            <MovesBoard/>
+          </div>
+
+        </div>
+       
       </>
   );
 }

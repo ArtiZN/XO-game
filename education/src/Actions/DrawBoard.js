@@ -7,30 +7,21 @@ function DrawBoard(props){
     
 
     const Styles = {
-        button : {
+        clickableDiv : {
             width : `${size}px`,
-            height : `${size}px`
-            
+            height : `${size}px`,
+            backgroundColor: 'lime',
+            marginRight : '5px',
+            marginTop : '5px',
+            fontSize: 90,
+            textAlign : 'center',
+            color: 'red',
         },
         
         div : {
-            display: 'inline-flex', 
-            width: `${3*size}`,
-            height : `${size}px`
-            
+            display: 'flex',      
         },
-        
-        body : {
-            
-            height : `${3*size}px`,
-            width: `${3*size}`,
-        },
-        p: {
-            margin: 0,
-            fontSize: 200,
-            marginTop: -40,
-            marginLeft: -10,
-        }
+
     }
 
 
@@ -67,11 +58,25 @@ function DrawBoard(props){
                     } 
                     
                 }
+                
             }
-            
-          
-        
+   
     }
+
+
+
+    function endGame(){
+            let values = props.Values()
+            winCondition()
+            if (values.every(element => {
+               return element!==0
+            })) {
+                alert('draw')
+                setTimeout(props.resetBoard, 1000)
+            }
+    }
+    
+    
 
     function clicked(e, id){
         e.preventDefault();
@@ -88,7 +93,7 @@ function DrawBoard(props){
         }
        else alert('The field is not empty')
 
-       winCondition()
+       endGame()
     }
    
 
@@ -104,46 +109,49 @@ function DrawBoard(props){
     }  
     
     return (
+
         <div className='main' style={Styles.body}>
 
+            
+
             <div style={Styles.div}>
-                <button style={Styles.button} onClick={(event)=>{return clicked(event, 0)}}>
-                    <p style={Styles.p}>{renderElement(props.Values()[0])}</p>
-                </button>
-                <button style={Styles.button} onClick={(event)=>{return clicked(event, 1)}}>
-                    <p style={Styles.p}>{renderElement(props.Values()[1])}</p>
-                </button>
-                <button style={Styles.button} onClick={(event)=>{return clicked(event, 2)}}>
-                    <p style={Styles.p}>{renderElement(props.Values()[2])}</p>
-                </button>
+                <div style={Styles.clickableDiv} onClick={(event)=>{return clicked(event, 0)}}>
+                    {renderElement(props.Values()[0])}
+                </div>
+                <div style={Styles.clickableDiv} onClick={(event)=>{return clicked(event, 1)}}>
+                    {renderElement(props.Values()[1])}
+                </div>
+                <div style={Styles.clickableDiv} onClick={(event)=>{return clicked(event, 2)}}>
+                    {renderElement(props.Values()[2])}
+                </div>
             </div>
 
-            <p style={{margin:  '0px'}}/>
+            
 
             <div style={Styles.div}>
-                <button style={Styles.button} onClick={(event)=>{return clicked(event, 3)}}>
-                    <p style={Styles.p}>{renderElement(props.Values()[3])}</p>
-                </button>
-                <button style={Styles.button} onClick={(event)=>{return clicked(event, 4)}}>
-                    <p style={Styles.p}>{renderElement(props.Values()[4])}</p>
-                </button>
-                <button style={Styles.button} onClick={(event)=>{return clicked(event, 5)}}>
-                    <p style={Styles.p}>{renderElement(props.Values()[5])}</p>
-                </button>
+                <div style={Styles.clickableDiv} onClick={(event)=>{return clicked(event, 3)}}>
+                    {renderElement(props.Values()[3])}
+                </div>
+                <div style={Styles.clickableDiv} onClick={(event)=>{return clicked(event, 4)}}>
+                    {renderElement(props.Values()[4])}
+                </div>
+                <div style={Styles.clickableDiv} onClick={(event)=>{return clicked(event, 5)}}>
+                    {renderElement(props.Values()[5])}
+                </div>
             </div>
 
-            <p style={{margin:  '0px'}}/>
+            
 
             <div style={Styles.div}>
-                <button style={Styles.button} onClick={(event)=>{return clicked(event, 6)}}>
-                    <p style={Styles.p}>{renderElement(props.Values()[6])}</p>
-                </button>
-                <button style={Styles.button} onClick={(event)=>{return clicked(event, 7)}}>
-                    <p style={Styles.p}>{renderElement(props.Values()[7])}</p>
-                </button>
-                <button style={Styles.button} onClick={(event)=>{return clicked(event, 8)}}>
-                    <p style={Styles.p}>{renderElement(props.Values()[8])}</p>
-                </button>
+                <div style={Styles.clickableDiv} onClick={(event)=>{return clicked(event, 6)}}>
+                    {renderElement(props.Values()[6])}
+                </div>
+                <div style={Styles.clickableDiv} onClick={(event)=>{return clicked(event, 7)}}>
+                   {renderElement(props.Values()[7])}
+                </div>
+                <div style={Styles.clickableDiv} onClick={(event)=>{return clicked(event, 8)}}>
+                   {renderElement(props.Values()[8])}
+                </div>
             </div>
                     
         </div>
