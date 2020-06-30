@@ -12,6 +12,8 @@ function MovesBoard(){
             width: '250px',
             height: '500px',
             border: '4px solid black',
+            color: 'black',
+            backgroundColor: 'white'
 
         },
         innerDiv: {

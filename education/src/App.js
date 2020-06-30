@@ -15,24 +15,23 @@ function App() {
 
   
 
-  function changeX(id){
+  function changeValue(id){
     return setBoard(board.map(element=>{
       if (element.id === id){
-        element.value=1
+        if (temp===1) {
+          element.value=1
+          setTemp(temp+1)
+        }
+        else{
+          element.value=2
+          setTemp(temp-1)
+        } 
       }
       return element;
       
     }))
   }
-  function changeO(id){
-    return setBoard(board.map(element=>{
-      if (element.id === id){
-        element.value=2
-      }
-      return element;
-      
-    }))
-  }
+ 
   function resetBoard(){
     setTemp(1)
     setBoard(board.map(element=>{
@@ -51,16 +50,16 @@ function App() {
 
   return (
       <>
-        <div style={{display: 'flex'}}>
+        <div className='main'>
           <div id='left'>
-
+          
           </div>
 
           <div id='middle'>
            <DrawBoard 
               Board={board} Values={getValues} 
               turn={temp} setTurn={setTemp} setBoard={setBoard} 
-              changeX={changeX} changeO={changeO} 
+              changeValue={changeValue} 
               resetBoard={resetBoard}
             />
           </div>

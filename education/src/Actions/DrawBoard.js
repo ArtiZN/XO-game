@@ -49,12 +49,12 @@ function DrawBoard(props){
                     values[a]===values[c] 
                 ){
                     if (values[a]===1) {
-                        alert ('X wins')
-                        setTimeout(props.resetBoard, 1000)
+                        return alert ('X wins')
+                        
                     }    
                     else if (values[a]===2){
-                        alert ('O wins')
-                        setTimeout(props.resetBoard, 1000)
+                        return alert ('O wins')
+                        
                     } 
                     
                 }
@@ -70,9 +70,9 @@ function DrawBoard(props){
             winCondition()
             if (values.every(element => {
                return element!==0
-            })) {
-                alert('draw')
-                setTimeout(props.resetBoard, 1000)
+            })&&!winCondition) {
+                return alert('draw')
+                
             }
     }
     
@@ -82,17 +82,12 @@ function DrawBoard(props){
         e.preventDefault();
         
         if (props.Values()[id]===0){
-            if (props.turn===1){
-                props.changeX(id)
-                props.setTurn(props.turn+1)
+            
+                props.changeValue(id)
+                
             }
-             else {
-                 props.changeO(id)
-                 props.setTurn(props.turn-1)
-             }    
-        }
-       else alert('The field is not empty')
-
+            else alert('The field is not empty')
+                      
        endGame()
     }
    
@@ -110,7 +105,7 @@ function DrawBoard(props){
     
     return (
 
-        <div className='main' style={Styles.body}>
+        <div style={Styles.body}>
 
             
 

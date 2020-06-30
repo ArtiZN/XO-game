@@ -14,9 +14,12 @@ code {
 }
 
 .main {
-    
-    width: 450px;
+  height: 937px;
+  display: flex;
+  background-color: yellow;
 }
+
+
 
 #left {
  width: 25%;
