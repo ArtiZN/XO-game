@@ -49,10 +49,12 @@ function DrawBoard(props){
                     values[a]===values[c] 
                 ){
                     if (values[a]===1) {
+                        props.gameisOn(false)
                         return alert ('X wins')
                         
                     }    
                     else if (values[a]===2){
+                        props.gameisOn(false)
                         return alert ('O wins')
                         
                     } 
@@ -71,6 +73,7 @@ function DrawBoard(props){
             if (values.every(element => {
                return element!==0
             })&&!winCondition) {
+            
                 return alert('draw')
                 
             }
@@ -80,15 +83,20 @@ function DrawBoard(props){
 
     function clicked(e, id){
         e.preventDefault();
-        
-        if (props.Values()[id]===0){
+
+        if (props.over){
+            console.log(props.over)
+            if (props.Values()[id]===0){
             
                 props.changeValue(id)
                 
             }
             else alert('The field is not empty')
                       
-       endGame()
+        endGame()
+        }
+        
+        
     }
    
 

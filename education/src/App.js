@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DrawBoard from './Actions/DrawBoard'
 import './App.css';
 import MovesBoard from './Actions/MovesBoard';
+import LeftPanel from './Actions/LeftPanel';
 
 function App() {
 
@@ -12,6 +13,8 @@ function App() {
   ])
 
   const [temp, setTemp] = useState(1) //if true it's 'X' turn, else it's 'O' turn
+
+  const [game, setGame] = useState(true)
 
   
 
@@ -34,6 +37,7 @@ function App() {
  
   function resetBoard(){
     setTemp(1)
+    setGame(true)
     setBoard(board.map(element=>{
       element.value=0
       return element
@@ -52,15 +56,20 @@ function App() {
       <>
         <div className='main'>
           <div id='left'>
-          
+          <LeftPanel/>
           </div>
 
           <div id='middle'>
            <DrawBoard 
-              Board={board} Values={getValues} 
-              turn={temp} setTurn={setTemp} setBoard={setBoard} 
+              Board={board} 
+              Values={getValues} 
+              turn={temp} 
+              setTurn={setTemp} 
+              setBoard={setBoard} 
               changeValue={changeValue} 
               resetBoard={resetBoard}
+              over={game}
+              gameisOn={setGame}
             />
           </div>
 
