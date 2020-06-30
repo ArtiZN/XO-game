@@ -17,6 +17,10 @@ function App() {
   const [game, setGame] = useState(true)
 
   
+  function whoMoves(){
+    if (temp===1) return 'X'
+    else return 'O'
+  }
 
   function changeValue(id){
     return setBoard(board.map(element=>{
@@ -56,7 +60,10 @@ function App() {
       <>
         <div className='main'>
           <div id='left'>
-          <LeftPanel/>
+          <LeftPanel
+            whoMoves={whoMoves}
+            reset={resetBoard}
+          />
           </div>
 
           <div id='middle'>
