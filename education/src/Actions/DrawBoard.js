@@ -22,6 +22,17 @@ function DrawBoard(props){
             display: 'flex',      
         },
 
+        letters: {
+            width : `${size/2 +5}px`,
+            paddingLeft: `${size/2}px`,
+            fontSize: 24
+        },
+        numbers: {
+            paddingTop: `${size/3 + 15}px`,
+            fontSize: 24,
+            marginRight: '5px'
+        }
+
     }
 
 
@@ -116,8 +127,25 @@ function DrawBoard(props){
         <div style={Styles.body}>
 
             
-
             <div style={Styles.div}>
+            
+                <div style={Styles.letters}>
+                    A
+                </div >
+                <div style={Styles.letters}>
+                    B
+                </div>
+                <div style={Styles.letters}>
+                    C
+                </div>
+
+            </div>
+            <div style={Styles.div}>
+                <div style={Styles.numbers}> 
+                    1
+                </div>
+                
+            
                 <div style={Styles.clickableDiv} onClick={(event)=>{return clicked(event, 0)}}>
                     {renderElement(props.Values()[0])}
                 </div>
@@ -132,6 +160,9 @@ function DrawBoard(props){
             
 
             <div style={Styles.div}>
+                <div style={Styles.numbers}> 
+                    2
+                </div>
                 <div style={Styles.clickableDiv} onClick={(event)=>{return clicked(event, 3)}}>
                     {renderElement(props.Values()[3])}
                 </div>
@@ -146,6 +177,9 @@ function DrawBoard(props){
             
 
             <div style={Styles.div}>
+                <div style={Styles.numbers}> 
+                    3
+                </div>
                 <div style={Styles.clickableDiv} onClick={(event)=>{return clicked(event, 6)}}>
                     {renderElement(props.Values()[6])}
                 </div>
