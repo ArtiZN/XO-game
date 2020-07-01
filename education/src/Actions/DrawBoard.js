@@ -1,11 +1,20 @@
 import React/*, {useState}*/ from 'react'
+import X1 from '../X1.mp3'
+import X2 from '../X2.mp3'
+import X3 from '../X3.mp3'
+import O1 from '../O1.mp3'
+import O2 from '../O2.mp3'
+import O3 from '../O3.mp3'
+
 
 function DrawBoard(props){
 
     const size = 150;
-
     
 
+    const Xes = [X1, X2, X3]
+    const Os = [O1, O2, O3]
+    
     const Styles = {
         clickableDiv : {
             width : `${size}px`,
@@ -33,6 +42,14 @@ function DrawBoard(props){
             marginRight: '5px'
         }
 
+    }
+
+    function AudioPlay (array){
+
+        var randomNumber = Math.floor(Math.random()*array.length)
+
+        var audio = new Audio(array[randomNumber]);
+        audio.play();
     }
 
 
@@ -76,8 +93,6 @@ function DrawBoard(props){
    
     }
 
-
-
     function endGame(){
             let values = props.Values()
             winCondition()
@@ -89,18 +104,20 @@ function DrawBoard(props){
                 
             }
     }
-    
+
     
 
     function clicked(e, id){
         e.preventDefault();
 
         if (props.over){
-            console.log(props.over)
+       
             if (props.Values()[id]===0){
-            
-                props.changeValue(id)
-                
+                props.changeValue(id) 
+                if (props.turn===1) {
+                  AudioPlay(Xes)
+                }
+                else {AudioPlay(Os)}
             }
             else alert('The field is not empty')
                       
@@ -128,6 +145,7 @@ function DrawBoard(props){
 
             
             <div style={Styles.div}>
+                <div style={{width: '13px'}}/>
             
                 <div style={Styles.letters}>
                     A

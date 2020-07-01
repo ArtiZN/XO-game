@@ -45,10 +45,10 @@ function MovesBoard(){
                 </div>      
                 <div style={Styles.lineDiv}>
                     <div style={Styles.movesDiv}>
-            asd
+                    
                     </div>
                     <div style={Styles.movesDiv}>
-asd
+                    
                     </div>
                 
 

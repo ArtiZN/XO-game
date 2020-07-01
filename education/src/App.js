@@ -4,6 +4,7 @@ import './App.css';
 import MovesBoard from './Actions/MovesBoard';
 import LeftPanel from './Actions/LeftPanel';
 
+
 function App() {
 
   const [board, setBoard] = useState([
@@ -60,10 +61,12 @@ function App() {
       <>
         <div className='main'>
           <div id='left'>
-          <LeftPanel
-            whoMoves={whoMoves}
-            reset={resetBoard}
-          />
+            <LeftPanel
+              whoMoves={whoMoves}
+              reset={resetBoard}
+            />
+            
+
           </div>
 
           <div id='middle'>
