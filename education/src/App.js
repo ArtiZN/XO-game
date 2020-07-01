@@ -13,9 +13,11 @@ function App() {
     {id: 6, value: 0}, {id: 7, value: 0}, {id: 8, value: 0},
   ])
 
-  const [temp, setTemp] = useState(1) //if true it's 'X' turn, else it's 'O' turn
+  const [temp, setTemp] = useState(1) //if true it's 'X' turn to move, else it's 'O'
 
-  const [game, setGame] = useState(true)
+  const [game, setGame] = useState(true) //false if the game is over
+
+  const [winner, setWinner] = useState(0) //winner of the game: 0 - not defined yet, 1 - X, 2 - O, 3 - draw
 
   
   function whoMoves(){
@@ -43,6 +45,7 @@ function App() {
   function resetBoard(){
     setTemp(1)
     setGame(true)
+    setWinner(0)
     setBoard(board.map(element=>{
       element.value=0
       return element
@@ -64,6 +67,7 @@ function App() {
             <LeftPanel
               whoMoves={whoMoves}
               reset={resetBoard}
+              winner={winner}
             />
             
 
@@ -80,6 +84,7 @@ function App() {
               resetBoard={resetBoard}
               over={game}
               gameisOn={setGame}
+              setWinner={setWinner}
             />
           </div>
 

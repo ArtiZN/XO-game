@@ -77,13 +77,13 @@ function DrawBoard(props){
                     values[a]===values[c] 
                 ){
                     if (values[a]===1) {
-                        props.gameisOn(false)
-                        return alert ('X wins')
+                        props.gameisOn(false) //disallow further moves
+                        props.setWinner(1)  //X wins
                         
                     }    
                     else if (values[a]===2){
-                        props.gameisOn(false)
-                        return alert ('O wins')
+                        props.gameisOn(false) //disallow further moves
+                        props.setWinner(2) //O wins
                         
                     } 
                     
@@ -98,10 +98,9 @@ function DrawBoard(props){
             winCondition()
             if (values.every(element => {
                return element!==0
-            })&&!winCondition) {
-            
-                return alert('draw')
-                
+            })) {            
+                props.setWinner(3) //it's a draw
+                props.gameisOn(false) //disallow further moves
             }
     }
 
