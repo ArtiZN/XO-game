@@ -1,6 +1,7 @@
 import React from 'react'
 
 function LeftPanel(props){
+    let winner = props.winner 
 
     const Styles = {
         button: {
@@ -10,6 +11,14 @@ function LeftPanel(props){
             backgroundColor: 'black',
             color: 'white'
         },
+        font40: {
+            fontSize: 40
+        },
+        toMove: {
+            fontSize: 20, 
+            paddingTop: '15px', 
+            paddingLeft: '15px'
+        }
     }
 
     return(        
@@ -19,15 +28,15 @@ function LeftPanel(props){
 
             <div style={{display: 'flex'}}>
 
-                {props.winner === 0 && 
+                {winner === 0 && 
                 <>
-                    <div style={{fontSize: 40}}>{props.whoMoves()}</div>
-                    <div style={{fontSize: 20, paddingTop: '15px', paddingLeft: '15px'}}>TO MOVE</div>
+                    <div style={Styles.font40}>{props.whoMoves()}</div>
+                    <div style={Styles.toMove}>TO MOVE</div>
                 </>}
 
-                {props.winner === 1 && <div style={{fontSize: 40}}>X WINS</div>}
-                {props.winner === 2 && <div style={{fontSize: 40}}>O WINS</div>}
-                {props.winner === 3 && <div style={{fontSize: 40}}>DRAW</div>}
+                {winner === 1 && <div style={Styles.font40}>X WINS</div>}
+                {winner === 2 && <div style={Styles.font40}>O WINS</div>}
+                {winner === 3 && <div style={Styles.font40}>DRAW</div>}
 
              
             </div>
