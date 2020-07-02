@@ -8,10 +8,16 @@ import LeftPanel from './Actions/LeftPanel';
 function App() {
 
   const [board, setBoard] = useState([
-    {id: 0, value: 0}, {id: 1, value: 0}, {id: 2, value: 0},
-    {id: 3, value: 0}, {id: 4, value: 0}, {id: 5, value: 0},
-    {id: 6, value: 0}, {id: 7, value: 0}, {id: 8, value: 0},
+    {id: 0, value: 0, str: 'A3'}, {id: 1, value: 0, str: 'B3'}, {id: 2, value: 0, str: 'C3'},
+    {id: 3, value: 0, str: 'A2'}, {id: 4, value: 0, str: 'B2'}, {id: 5, value: 0, str: 'C2'},
+    {id: 6, value: 0, str: 'A1'}, {id: 7, value: 0, str: 'B1'}, {id: 8, value: 0, str: 'C1'},
   ])
+
+  const [Xmoves, setXmoves] = useState([]);
+  const [Omoves, setOmoves] = useState([]);
+  
+  
+
 
   const [temp, setTemp] = useState(1) //if true it's 'X' turn to move, else it's 'O'
 
@@ -31,10 +37,12 @@ function App() {
         if (temp===1) {
           element.value=1
           setTemp(temp+1)
+          setXmoves(Xmoves.concat(board[id]))
         }
         else{
           element.value=2
           setTemp(temp-1)
+          setOmoves(Omoves.concat(board[id]))
         } 
       }
       return element;
@@ -46,6 +54,8 @@ function App() {
     setTemp(1)
     setGame(true)
     setWinner(0)
+    Xmoves.splice(0, Xmoves.length)
+    Omoves.splice(0, Omoves.length)
     setBoard(board.map(element=>{
       element.value=0
       return element
@@ -89,7 +99,7 @@ function App() {
           </div>
 
           <div id='right'>
-            <MovesBoard/>
+            <MovesBoard Xmoves={Xmoves} Omoves={Omoves}/>
           </div>
 
         </div>

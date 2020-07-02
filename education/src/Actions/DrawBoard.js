@@ -159,7 +159,7 @@ function DrawBoard(props){
             </div>
             <div style={Styles.div}>
                 <div style={Styles.numbers}> 
-                    1
+                    3
                 </div>
                 
             
@@ -195,7 +195,7 @@ function DrawBoard(props){
 
             <div style={Styles.div}>
                 <div style={Styles.numbers}> 
-                    3
+                    1
                 </div>
                 <div style={Styles.clickableDiv} onClick={(event)=>{return clicked(event, 6)}}>
                     {renderElement(props.Values()[6])}

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function MovesBoard(){
+function MovesBoard(props){
     let Styles = {
         marginDiv: {
             paddingTop: '170px',
@@ -30,8 +30,34 @@ function MovesBoard(){
         }
     }
 
+    let Xmoves = props.Xmoves
+
+    function drawXMoves(){
+       
+        return Xmoves.map(element=>{
+            return  <ul key={element.id}>
+                <li>
+                    {element.str}
+                </li>
+            </ul>
+            
+        })
+    }
+    function drawOMoves(){
+       
+        return props.Omoves.map(element=>{
+            return  <ul key={element.id}>
+                <li>
+                    {element.str}
+                </li>
+            </ul>
+            
+        })
+    }
+
     return (
         <>
+       
             <div style={Styles.marginDiv}/>
 
             <div style={Styles.scoreDiv}> 
@@ -45,18 +71,17 @@ function MovesBoard(){
                 </div>      
                 <div style={Styles.lineDiv}>
                     <div style={Styles.movesDiv}>
-                    
+                        {drawXMoves()}
                     </div>
                     <div style={Styles.movesDiv}>
-                    
+                        {drawOMoves()}
                     </div>
                 
 
                 </div>
                 
             </div>
-                
-            
+                    
         </>
     )
 }
