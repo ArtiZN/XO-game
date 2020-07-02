@@ -30,30 +30,19 @@ function MovesBoard(props){
         }
     }
 
-    let Xmoves = props.Xmoves
+   
 
-    function drawXMoves(){
+    function drawMoves(array){
        
-        return Xmoves.map(element=>{
-            return  <ul key={element.id}>
-                <li>
-                    {element.str}
-                </li>
-            </ul>
+        return array.map(element=>{
+            return <li key={element.id}>
+                     {element.str}
+                    </li>
+            
             
         })
     }
-    function drawOMoves(){
-       
-        return props.Omoves.map(element=>{
-            return  <ul key={element.id}>
-                <li>
-                    {element.str}
-                </li>
-            </ul>
-            
-        })
-    }
+  
 
     return (
         <>
@@ -71,10 +60,16 @@ function MovesBoard(props){
                 </div>      
                 <div style={Styles.lineDiv}>
                     <div style={Styles.movesDiv}>
-                        {drawXMoves()}
+                        <ul>
+                         {drawMoves(props.Xmoves)}
+                        </ul>
+                        
                     </div>
                     <div style={Styles.movesDiv}>
-                        {drawOMoves()}
+                        <ul>
+                         {drawMoves(props.Omoves)}
+                        </ul>
+                        
                     </div>
                 
 
