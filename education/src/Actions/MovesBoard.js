@@ -9,7 +9,7 @@ function MovesBoard(props){
             display: 'flex'
         },
         scoreDiv: {
-            borderRadius: '50px',
+            borderRadius: '50px 50px 0px 0px',
             width: '250px',
             height: '500px',
             border: '4px solid black',
@@ -36,10 +36,10 @@ function MovesBoard(props){
             color: '', 
             backgroundColor: '#FFA000',
             width: '100%',
-            height: '20%',
+            height: `20%`,
             textAlign: 'center',
             fontSize: 30,
-            border: '1px solid grey',
+            border: '0.4px solid grey',
 
         },
         ul: {

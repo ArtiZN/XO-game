@@ -9,15 +9,19 @@ function LeftPanel(props){
             height: '100px',
             fontSize: 30,
             backgroundColor: '#FFECB3',
-            color: 'black'
+            color: 'black',
+            boxShadow: '12px 12px 2px 1px rgba(0, 0, 255, .2)',
         },
         font40: {
-            fontSize: 40
+            fontSize: 40,
+            textShadow: '2px 2px 2px black'
+        
         },
         toMove: {
             fontSize: 20, 
             paddingTop: '15px', 
-            paddingLeft: '15px'
+            paddingLeft: '15px',
+            textShadow: '2px 2px 2px black',
         }
     }
 

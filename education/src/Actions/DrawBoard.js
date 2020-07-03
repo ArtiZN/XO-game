@@ -25,6 +25,7 @@ function DrawBoard(props){
             fontSize: 90,
             textAlign : 'center',
             color: '#FF5722',
+            boxShadow: '12px 12px 2px 1px rgba(0, 0, 255, .2)',
         },
         
         div : {
@@ -40,8 +41,7 @@ function DrawBoard(props){
             paddingTop: `${size/3 + 15}px`,
             fontSize: 24,
             marginRight: '5px'
-        }
-
+        },
     }
 
     function AudioPlay (array){
