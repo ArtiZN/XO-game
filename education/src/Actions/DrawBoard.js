@@ -19,12 +19,12 @@ function DrawBoard(props){
         clickableDiv : {
             width : `${size}px`,
             height : `${size}px`,
-            backgroundColor: 'lime',
+            backgroundColor: '#FFECB3',
             marginRight : '5px',
             marginTop : '5px',
             fontSize: 90,
             textAlign : 'center',
-            color: 'red',
+            color: '#FF5722',
         },
         
         div : {
@@ -86,6 +86,7 @@ function DrawBoard(props){
                         props.setWinner(2) //O wins
                         
                     } 
+                   
                     
                 }
                 
@@ -98,7 +99,7 @@ function DrawBoard(props){
             winCondition()
             if (values.every(element => {
                return element!==0
-            })) {            
+            })&&!winCondition()) {            
                 props.setWinner(3) //it's a draw
                 props.gameisOn(false) //disallow further moves
             }

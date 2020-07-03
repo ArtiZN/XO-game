@@ -8,8 +8,8 @@ function LeftPanel(props){
             width: '200px',
             height: '100px',
             fontSize: 30,
-            backgroundColor: 'black',
-            color: 'white'
+            backgroundColor: '#FFECB3',
+            color: 'black'
         },
         font40: {
             fontSize: 40
@@ -26,7 +26,7 @@ function LeftPanel(props){
 
             <div style={{marginTop: '200px'}}/>
 
-            <div style={{display: 'flex'}}>
+            <div style={{display: 'flex', color: '#FFECB3'}}>
 
                 {winner === 0 && 
                 <>
