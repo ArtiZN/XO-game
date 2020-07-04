@@ -15,14 +15,8 @@ function App() {
 
   const [Xmoves, setXmoves] = useState([]);
   const [Omoves, setOmoves] = useState([]);
-  
-  
-
-
   const [temp, setTemp] = useState(1) //if true it's 'X' turn to move, else it's 'O'
-
   const [game, setGame] = useState(true) //false if the game is over
-
   const [winner, setWinner] = useState(0) //winner of the game: 0 - not defined yet, 1 - X, 2 - O, 3 - draw
 
   
@@ -45,11 +39,10 @@ function App() {
           setOmoves(Omoves.concat(board[id]))
         } 
       }
-      return element;
-      
+      return element;   
     }))
   }
- 
+
   function resetBoard(){
     setTemp(1)
     setGame(true)
@@ -63,13 +56,11 @@ function App() {
     )
   }
 
-
   const getValues = function() {
     return board.map(element=>{
       return  element.value;
     })
   }
-
   return (
       <>
         <div className='main'>
@@ -79,10 +70,7 @@ function App() {
               reset={resetBoard}
               winner={winner}
             />
-            
-
           </div>
-
           <div id='middle'>
            <DrawBoard 
               Board={board} 
@@ -97,13 +85,10 @@ function App() {
               setWinner={setWinner}
             />
           </div>
-
           <div id='right'>
             <MovesBoard Xmoves={Xmoves} Omoves={Omoves}/>
           </div>
-
-        </div>
-       
+        </div>     
       </>
   );
 }

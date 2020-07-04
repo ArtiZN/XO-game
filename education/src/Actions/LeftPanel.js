@@ -15,7 +15,6 @@ function LeftPanel(props){
         font40: {
             fontSize: 40,
             textShadow: '2px 2px 2px black'
-        
         },
         toMove: {
             fontSize: 20, 
@@ -27,24 +26,17 @@ function LeftPanel(props){
 
     return(        
         <div style={{marginLeft: '250px'}}>
-
             <div style={{marginTop: '200px'}}/>
-
             <div style={{display: 'flex', color: '#FFECB3'}}>
-
                 {winner === 0 && 
                 <>
                     <div style={Styles.font40}>{props.whoMoves()}</div>
                     <div style={Styles.toMove}>TO MOVE</div>
                 </>}
-
                 {winner === 1 && <div style={Styles.font40}>X WINS</div>}
                 {winner === 2 && <div style={Styles.font40}>O WINS</div>}
-                {winner === 3 && <div style={Styles.font40}>DRAW</div>}
-
-             
-            </div>
-            
+                {winner === 3 && <div style={Styles.font40}>DRAW</div>}         
+            </div>          
             <div style={{marginTop: '200px'}}/>
             <button style={Styles.button} onClick={props.reset}>restart</button>
         </div>   

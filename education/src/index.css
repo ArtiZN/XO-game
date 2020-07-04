@@ -1,4 +1,3 @@
-
 html,
 body {
   height: 100%;
@@ -10,21 +9,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-
 
 .main {
   height: 100%;
   display: flex;
   background-color:darkgreen;
 }
-
-
 
 #left {
  width: 25%;

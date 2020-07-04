@@ -16,21 +16,17 @@ function MovesBoard(props){
             color: 'black',
             backgroundColor: '#FFECB3',
             boxShadow: '12px 12px 2px 1px rgba(0, 0, 255, .2)'
-
         },
         innerDiv: {
             width: '123px',
-            height: '30px',
-           
+            height: '30px',          
             borderRadius: '50px',
             textAlign: 'center',
-            paddingTop: '5px',
-            
+            paddingTop: '5px',         
         },
         movesDiv: {
             width: '50%',
-            height: '461px',
-              
+            height: '461px',           
         },
         li: {
             color: '', 
@@ -40,7 +36,6 @@ function MovesBoard(props){
             textAlign: 'center',
             fontSize: 30,
             border: '0.4px solid grey',
-
         },
         ul: {
             height: '100%', 
@@ -57,18 +52,14 @@ function MovesBoard(props){
         return array.map(element=>{
             return <li key={element.id} style={Styles.li} type='none'>
                      {element.str}
-                    </li>
-            
-            
+                    </li>                 
         })
     }
   
 
     return (
         <>
-       
             <div style={Styles.marginDiv}/>
-
             <div style={Styles.scoreDiv}> 
                 <div style={Styles.lineDiv}>
                     <div style={Styles.innerDiv}>
@@ -82,21 +73,15 @@ function MovesBoard(props){
                     <div style={Styles.movesDiv}>
                         <ul style={Styles.ul}>
                          {drawMoves(props.Xmoves)}
-                        </ul>
-                        
+                        </ul>                  
                     </div>
                     <div style={Styles.movesDiv}>
                         <ul style={Styles.ul}>
                          {drawMoves(props.Omoves)}
-                        </ul>
-                        
-                    </div>
-                
-
-                </div>
-                
-            </div>
-                    
+                        </ul>       
+                    </div>               
+                </div>               
+            </div>                  
         </>
     )
 }
