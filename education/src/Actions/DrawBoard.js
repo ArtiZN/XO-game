@@ -10,8 +10,8 @@ function DrawBoard(props){
     const Xes = [X3]
     const Os = [O3]
 
-    const [P1, setP1] = useState(0)
-    const [P2, setP2] = useState(0)
+    const [P1, setP1] = useState(0) //number of player 1 victories
+    const [P2, setP2] = useState(0) //number of player 2 victories
     
     const Styles = {
         clickableDiv : {
@@ -62,6 +62,14 @@ function DrawBoard(props){
             textAlign: 'center',
             fontSize: 24,
             width: '50%'
+        },
+        resetButton: {
+            width: '100px',
+            height: '50px',
+            borderRadius: '30px',
+            margin: '10px 75px',
+            backgroundColor: '#FFECB3',
+            fontSize: 16,
         }
     }
 
@@ -144,6 +152,11 @@ function DrawBoard(props){
                 default: return  
             }
     }  
+
+    function resetScore (){
+        setP1(0)
+        setP2(0)
+    }
     
     return (
         <div style={Styles.body}>
@@ -217,8 +230,12 @@ function DrawBoard(props){
                     <div style={Styles.totalPoints}>
                         {P2}
                     </div>
-                </div>        
-            </div>              
+                </div>
+                <button style={Styles.resetButton} onClick={resetScore}>
+                    Clear
+                </button>        
+            </div>
+                        
         </div>
     )
 }

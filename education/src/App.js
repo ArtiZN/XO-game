@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DrawBoard from './Actions/DrawBoard'
 import './App.css';
 import MovesBoard from './Actions/MovesBoard';
@@ -6,6 +6,10 @@ import LeftPanel from './Actions/LeftPanel';
 
 
 function App() {
+
+  // useEffect(()=>{
+  //   console.log('hi guys')
+  // })
 
   const [board, setBoard] = useState([
     {id: 0, value: 0, str: 'A3'}, {id: 1, value: 0, str: 'B3'}, {id: 2, value: 0, str: 'C3'},
