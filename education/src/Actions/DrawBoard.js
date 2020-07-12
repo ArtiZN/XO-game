@@ -1,4 +1,4 @@
-import React/*, {useState}*/ from 'react'
+import React, { useState }/*, {useState}*/ from 'react'
 import X3 from '../X3.mp3'
 import O3 from '../O3.mp3'
 
@@ -9,6 +9,9 @@ function DrawBoard(props){
     
     const Xes = [X3]
     const Os = [O3]
+
+    const [P1, setP1] = useState(0)
+    const [P2, setP2] = useState(0)
     
     const Styles = {
         clickableDiv : {
@@ -35,6 +38,35 @@ function DrawBoard(props){
             fontSize: 24,
             marginRight: '5px'
         },
+        personalStats: {
+            marginTop: '40px',
+            marginLeft: '100px',
+            width: '250px',
+            height: '100px',
+            backgroundColor: '#FFECB3',
+            borderRadius: '50px',
+            boxShadow: '12px 12px 2px 1px rgba(0, 0, 255, .2)',
+            fontSize: 24
+        },
+        players: {
+            width: '50%',
+            textAlign: 'center',
+            justifyContent: 'center',
+            borderRight: '1px solid grey'
+        },
+        linebox50: {
+            display: 'flex',
+            height: '50%'
+        },
+        totalPoints:{
+            textAlign: 'center',
+            fontSize: 24,
+            width: '50%'
+        }
+    }
+
+    const changedBorder ={
+        ...Styles.linebox50, borderTop: '1px solid grey'
     }
 
     function AudioPlay (array){
@@ -65,10 +97,13 @@ function DrawBoard(props){
                     if (values[a]===1) {
                         props.gameisOn(false) //disallow further moves
                         props.setWinner(1)  //X wins
+                        setP1(P1+1)
+
                     }    
                     else if (values[a]===2){
                         props.gameisOn(false) //disallow further moves
                         props.setWinner(2) //O wins  
+                        setP2(P2+1)
                     }    
                 }   
             }
@@ -76,11 +111,13 @@ function DrawBoard(props){
 
     function endGame(){
             let values = props.Values()
-            winCondition()
-            if (values.every(element => {
+            
+            if (winCondition() && values.every(element => {
                return element!==0
-            })&&!winCondition()) {            
+            })) {            
                 props.setWinner(3) //it's a draw
+                setP1(P1+0.5)
+                setP2(P2+0.5)
                 props.gameisOn(false) //disallow further moves
             }
     }
@@ -163,7 +200,25 @@ function DrawBoard(props){
                 <div style={Styles.clickableDiv} onClick={(event)=>{return clicked(event, 8)}}>
                    {renderElement(props.Values()[8])}
                 </div>
-            </div>               
+            </div> 
+            <div style={Styles.personalStats}>
+                <div style={Styles.linebox50}>
+                    <div style={Styles.players}>
+                        Player 1
+                    </div>
+                    <div style={Styles.totalPoints}>
+                        {P1}
+                    </div>
+                </div>
+                <div style={changedBorder}>         
+                    <div style={Styles.players}>
+                        Player 2
+                    </div>
+                    <div style={Styles.totalPoints}>
+                        {P2}
+                    </div>
+                </div>        
+            </div>              
         </div>
     )
 }
