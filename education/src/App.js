@@ -7,9 +7,7 @@ import LeftPanel from './Actions/LeftPanel';
 
 function App() {
 
-  // useEffect(()=>{
-  //   console.log('hi guys')
-  // })
+    
 
   const [board, setBoard] = useState([
     {id: 0, value: 0, str: 'A3'}, {id: 1, value: 0, str: 'B3'}, {id: 2, value: 0, str: 'C3'},
@@ -22,6 +20,15 @@ function App() {
   const [temp, setTemp] = useState(1) //if true it's 'X' turn to move, else it's 'O'
   const [game, setGame] = useState(true) //false if the game is over
   const [winner, setWinner] = useState(0) //winner of the game: 0 - not defined yet, 1 - X, 2 - O, 3 - draw
+
+  useEffect(()=>{
+    const raw = localStorage.getItem('myBoard')
+    setBoard(JSON.parse(raw))
+  },[])
+
+  useEffect(()=>{
+    localStorage.setItem('myBoard', JSON.stringify(board))
+  },[board])
 
   
   function whoMoves(){
