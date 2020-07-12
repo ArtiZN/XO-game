@@ -15,20 +15,52 @@ function App() {
     {id: 6, value: 0, str: 'A1'}, {id: 7, value: 0, str: 'B1'}, {id: 8, value: 0, str: 'C1'},
   ])
 
-  const [Xmoves, setXmoves] = useState([]);
-  const [Omoves, setOmoves] = useState([]);
+  const [Xmoves, setXmoves] = useState([]) //Moves made by 'X'
+  const [Omoves, setOmoves] = useState([]) //moves made by
   const [temp, setTemp] = useState(1) //if true it's 'X' turn to move, else it's 'O'
   const [game, setGame] = useState(true) //false if the game is over
   const [winner, setWinner] = useState(0) //winner of the game: 0 - not defined yet, 1 - X, 2 - O, 3 - draw
 
-  useEffect(()=>{
-    const raw = localStorage.getItem('myBoard')
+  useEffect(()=>{                                   //loading this values when the page is loaded
+    let raw = localStorage.getItem('myBoard')
     setBoard(JSON.parse(raw))
+    raw = localStorage.getItem('Xmoves')
+    setXmoves(JSON.parse(raw))
+    raw = localStorage.getItem('Omoves')
+    setOmoves(JSON.parse(raw))
+    raw = localStorage.getItem('temp')
+    setTemp(JSON.parse(raw))
+    raw = localStorage.getItem('game')
+    setGame(JSON.parse(raw))
+    raw = localStorage.getItem('winner')
+    setWinner(JSON.parse(raw))
   },[])
 
   useEffect(()=>{
     localStorage.setItem('myBoard', JSON.stringify(board))
-  },[board])
+    localStorage.setItem('Xmoves', JSON.stringify(Xmoves))
+    localStorage.setItem('Omoves', JSON.stringify(Omoves))
+    localStorage.setItem('temp', JSON.stringify(temp))
+    localStorage.setItem('game', JSON.stringify(game))
+    localStorage.setItem('winner', JSON.stringify(winner))
+  },[board, Xmoves, Omoves, temp, game, winner])
+  
+  // useEffect(()=>{
+  //   localStorage.setItem('Xmoves', JSON.stringify(Xmoves))
+  // },[Xmoves])
+  // useEffect(()=>{
+  //   localStorage.setItem('Omoves', JSON.stringify(Omoves))
+  // },[Omoves])
+  // useEffect(()=>{
+  //   localStorage.setItem('temp', JSON.stringify(temp))
+  // },[temp])
+  // useEffect(()=>{
+  //   localStorage.setItem('game', JSON.stringify(game))
+  // },[game])
+  // useEffect(()=>{
+  //   localStorage.setItem('winner', JSON.stringify(winner))
+  // },[winner])
+
 
   
   function whoMoves(){

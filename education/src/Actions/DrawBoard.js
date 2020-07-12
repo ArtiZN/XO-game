@@ -1,4 +1,4 @@
-import React, { useState }/*, {useState}*/ from 'react'
+import React, { useState, useEffect }/*, {useState}*/ from 'react'
 import X3 from '../X3.mp3'
 import O3 from '../O3.mp3'
 
@@ -12,6 +12,18 @@ function DrawBoard(props){
 
     const [P1, setP1] = useState(0) //number of player 1 victories
     const [P2, setP2] = useState(0) //number of player 2 victories
+
+    useEffect(()=>{
+        let raw = localStorage.getItem('P1')
+        setP1(JSON.parse(raw))
+        raw = localStorage.getItem('P2')
+        setP2(JSON.parse(raw))
+    },[])
+
+    useEffect(()=>{
+        localStorage.setItem('P1', JSON.stringify(P1))
+        localStorage.setItem('P2', JSON.stringify(P2))     
+    },[P1, P2])
     
     const Styles = {
         clickableDiv : {
