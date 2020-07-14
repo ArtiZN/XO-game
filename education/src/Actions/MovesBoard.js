@@ -3,7 +3,7 @@ import React from 'react'
 function MovesBoard(props){
     let Styles = {
         marginDiv: {
-            paddingTop: '170px',
+            height: '170px',
         },
         lineDiv : {
             display: 'flex'
@@ -56,7 +56,9 @@ function MovesBoard(props){
 
     return (
         <>
-            <div style={Styles.marginDiv}/>
+            <div style={Styles.marginDiv}>
+                panel here
+            </div>
             <div style={Styles.scoreDiv}> 
                 <div style={Styles.lineDiv}>
                     <div style={Styles.innerDiv}>

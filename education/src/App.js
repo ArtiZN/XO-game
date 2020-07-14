@@ -105,33 +105,33 @@ function App() {
     })
   }
   return (
-      <>
+      <>  
         <div className='main'>
-          <div id='left'>
-            <LeftPanel
-              whoMoves={whoMoves}
-              reset={resetBoard}
-              winner={winner}
-            />
-          </div>
-          <div id='middle'>
-           <DrawBoard 
-              Board={board} 
-              Values={getValues} 
-              turn={temp} 
-              setTurn={setTemp} 
-              setBoard={setBoard} 
-              changeValue={changeValue} 
-              resetBoard={resetBoard}
-              over={game}
-              gameisOn={setGame}
-              setWinner={setWinner}
-            />
+            <div id='left'>
+              <LeftPanel
+                whoMoves={whoMoves}
+                reset={resetBoard}
+                winner={winner}
+              />
+            </div>
+            <div id='middle'>
+              <DrawBoard 
+                Board={board} 
+                Values={getValues} 
+                turn={temp} 
+                setTurn={setTemp} 
+                setBoard={setBoard} 
+                changeValue={changeValue} 
+                resetBoard={resetBoard}
+                over={game}
+                gameisOn={setGame}
+                setWinner={setWinner}
+              />
           </div>
           <div id='right'>
             <MovesBoard Xmoves={Xmoves} Omoves={Omoves}/>
           </div>
-        </div>     
+        </div>       
       </>
   );
 }
