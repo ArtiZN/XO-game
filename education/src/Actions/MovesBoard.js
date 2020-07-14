@@ -45,8 +45,6 @@ function MovesBoard(props){
         }
     }
 
-   
-
     function drawMoves(array){
        
         return array.map(element=>{
@@ -55,7 +53,6 @@ function MovesBoard(props){
                     </li>                 
         })
     }
-  
 
     return (
         <>
