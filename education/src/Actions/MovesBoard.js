@@ -4,9 +4,10 @@ function MovesBoard(props){
     let Styles = {
         marginDiv: {
             height: '170px',
+            textAlign: 'right'
         },
         lineDiv : {
-            display: 'flex'
+            display: 'flex',
         },
         scoreDiv: {
             borderRadius: '50px 50px 0px 0px',
@@ -42,6 +43,17 @@ function MovesBoard(props){
             margin: '0px',
             paddingLeft: '0px',
             width: '100%'
+        },
+        select: {
+            width : '110px',
+            height: '30px',
+            backgroundColor: '#FFECB3',
+            borderRadius: '50px 50px',
+            margin: '15px',
+            fontSize: 20
+        },
+        option: {
+            fontSize: 20
         }
     }
 
@@ -57,7 +69,13 @@ function MovesBoard(props){
     return (
         <>
             <div style={Styles.marginDiv}>
-                panel here
+                <select style={Styles.select}>
+                    <option style={Styles.option} hidden defaultValue='Option'>Option</option>
+                    <option style={Styles.option} value='LogIn'>Log in</option>
+                    <option style={Styles.option} value='SignUp'>Sign up</option>
+                    <option style={Styles.option} value='LogOut'>Log Out</option>
+                    <option style={Styles.option} value='Settings'>Settings</option>
+                </select>
             </div>
             <div style={Styles.scoreDiv}> 
                 <div style={Styles.lineDiv}>

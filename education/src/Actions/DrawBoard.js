@@ -43,12 +43,14 @@ function DrawBoard(props){
         letters: {
             width : `${size/2 +5}px`,
             paddingLeft: `${size/2}px`,
-            fontSize: 24
+            fontSize: 24,
+            color: '#FFECB3',
         },
         numbers: {
             paddingTop: `${size/3 + 15}px`,
             fontSize: 24,
-            marginRight: '5px'
+            marginRight: '5px',
+            color: '#FFECB3'
         },
         personalStats: {
             marginTop: '40px',
@@ -118,21 +120,24 @@ function DrawBoard(props){
                         props.gameisOn(false) //disallow further moves
                         props.setWinner(1)  //X wins
                         setP1(P1+1)
-
+                        return true
                     }    
                     else if (values[a]===2){
                         props.gameisOn(false) //disallow further moves
                         props.setWinner(2) //O wins  
                         setP2(P2+1)
+                        return true
                     }    
+                    else if (true)
+                    return false
                 }   
             }
+            
     }
 
     function endGame(){
             let values = props.Values()
-            
-            if (winCondition() && values.every(element => {
+             if(!winCondition() && values.every(element => {
                return element!==0
             })) {            
                 props.setWinner(3) //it's a draw
