@@ -4,7 +4,8 @@ function MovesBoard(props){
     let Styles = {
         marginDiv: {
             height: '170px',
-            textAlign: 'right'
+            textAlign: 'right',
+            
         },
         lineDiv : {
             display: 'flex',
@@ -50,10 +51,14 @@ function MovesBoard(props){
             backgroundColor: '#FFECB3',
             borderRadius: '50px 50px',
             margin: '15px',
-            fontSize: 20
+            fontSize: 20,
+            boxShadow: '12px 12px 2px 1px rgba(0, 0, 255, .2)',
+          
         },
         option: {
-            fontSize: 20
+            fontSize: 20,
+            color: 'yellow',
+            backgroundColor: 'purple',
         }
     }
 
