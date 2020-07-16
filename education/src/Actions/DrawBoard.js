@@ -131,8 +131,7 @@ function DrawBoard(props){
                     else if (true)
                     return false
                 }   
-            }
-            
+            }      
     }
 
     function endGame(){
@@ -251,8 +250,7 @@ function DrawBoard(props){
                 <button style={Styles.resetButton} onClick={resetScore}>
                     Clear
                 </button>        
-            </div>
-                        
+            </div>                        
         </div>
     )
 }

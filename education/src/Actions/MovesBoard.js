@@ -53,13 +53,12 @@ function MovesBoard(props){
             margin: '15px',
             fontSize: 20,
             boxShadow: '12px 12px 2px 1px rgba(0, 0, 255, .2)',
-          
         },
         option: {
             fontSize: 20,
             color: 'yellow',
             backgroundColor: 'purple',
-        }
+        },
     }
 
     function drawMoves(array){

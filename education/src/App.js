@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import DrawBoard from './Actions/DrawBoard'
 import './App.css';
 import MovesBoard from './Actions/MovesBoard';
 import LeftPanel from './Actions/LeftPanel';
 
 
+
 function App() {
-
-    
-
+  //some changes
+  //I'm really sorry for that
+  //but i need to commit something
   const [board, setBoard] = useState([
     {id: 0, value: 0, str: 'A3'}, {id: 1, value: 0, str: 'B3'}, {id: 2, value: 0, str: 'C3'},
     {id: 3, value: 0, str: 'A2'}, {id: 4, value: 0, str: 'B2'}, {id: 5, value: 0, str: 'C2'},

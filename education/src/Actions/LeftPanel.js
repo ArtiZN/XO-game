@@ -21,7 +21,7 @@ function LeftPanel(props){
             paddingTop: '15px', 
             paddingLeft: '15px',
             textShadow: '2px 2px 2px black',
-        }
+        },
     }
 
     return(        
