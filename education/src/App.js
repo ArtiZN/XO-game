@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import DrawBoard from './Actions/DrawBoard'
 import './App.css';
 import MovesBoard from './Actions/MovesBoard';
@@ -15,7 +15,7 @@ function App() {
   ])
 
   const [Xmoves, setXmoves] = useState([]) //Moves made by 'X'
-  const [Omoves, setOmoves] = useState([]) //moves made by
+  const [Omoves, setOmoves] = useState([]) //moves made by 'O'
   const [temp, setTemp] = useState(1) //if true it's 'X' turn to move, else it's 'O'
   const [game, setGame] = useState(true) //false if the game is over
   const [winner, setWinner] = useState(0) //winner of the game: 0 - not defined yet, 1 - X, 2 - O, 3 - draw
@@ -35,6 +35,7 @@ function App() {
     setWinner(JSON.parse(raw))
   },[])
 
+  //input data in local storage when changed
   useEffect(()=>{
     localStorage.setItem('myBoard', JSON.stringify(board))
     localStorage.setItem('Xmoves', JSON.stringify(Xmoves))
@@ -44,29 +45,13 @@ function App() {
     localStorage.setItem('winner', JSON.stringify(winner))
   },[board, Xmoves, Omoves, temp, game, winner])
   
-  // useEffect(()=>{
-  //   localStorage.setItem('Xmoves', JSON.stringify(Xmoves))
-  // },[Xmoves])
-  // useEffect(()=>{
-  //   localStorage.setItem('Omoves', JSON.stringify(Omoves))
-  // },[Omoves])
-  // useEffect(()=>{
-  //   localStorage.setItem('temp', JSON.stringify(temp))
-  // },[temp])
-  // useEffect(()=>{
-  //   localStorage.setItem('game', JSON.stringify(game))
-  // },[game])
-  // useEffect(()=>{
-  //   localStorage.setItem('winner', JSON.stringify(winner))
-  // },[winner])
-
-
-  
+//shows who moves
   function whoMoves(){
     if (temp===1) return 'X'
     else return 'O'
   }
 
+//function for writing down moves and turn
   function changeValue(id){
     return setBoard(board.map(element=>{
       if (element.id === id){
@@ -85,6 +70,7 @@ function App() {
     }))
   }
 
+  //resets all values to the starting ones. Used for reseting the game
   function resetBoard(){
     setTemp(1)
     setGame(true)
@@ -98,6 +84,7 @@ function App() {
     )
   }
 
+  //
   const getValues = function() {
     return board.map(element=>{
       return  element.value;

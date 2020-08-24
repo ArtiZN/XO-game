@@ -33,6 +33,7 @@ function LeftPanel(props){
                     <div style={Styles.font40}>{props.whoMoves()}</div>
                     <div style={Styles.toMove}>TO MOVE</div>
                 </>}
+                {/* conditional rendering to show the winner*/}
                 {winner === 1 && <div style={Styles.font40}>X WINS</div>}
                 {winner === 2 && <div style={Styles.font40}>O WINS</div>}
                 {winner === 3 && <div style={Styles.font40}>DRAW</div>}         

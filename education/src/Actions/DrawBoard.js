@@ -1,30 +1,36 @@
-import React, { useState, useEffect }/*, {useState}*/ from 'react'
-import X3 from '../X3.mp3'
-import O3 from '../O3.mp3'
+import React, { useState, useEffect }from 'react'
+import X1 from '../X1.mp3'
+import X2 from '../X2.mp3'
+//import X3 from '../X3.mp3'
+import O1 from '../O1.mp3'
+import O2 from '../O2.mp3'
+//import O3 from '../O3.mp3'
 
 
 function DrawBoard(props){
 
     const size = 150;
     
-    const Xes = [X3]
-    const Os = [O3]
+    const Xes = [X1, X2, /*X3*/] //sounds for X moves, sounds can be added or removed
+    const Os = [O1, O2, /*O3*/]  //sounds for O moves, sounds can be added or removed 
 
     const [P1, setP1] = useState(0) //number of player 1 victories
     const [P2, setP2] = useState(0) //number of player 2 victories
 
+    //hook for saving info after the page is reloaded
     useEffect(()=>{
         let raw = localStorage.getItem('P1')
         setP1(JSON.parse(raw))
         raw = localStorage.getItem('P2')
         setP2(JSON.parse(raw))
     },[])
-
+    //inputing data into local storage
     useEffect(()=>{
         localStorage.setItem('P1', JSON.stringify(P1))
         localStorage.setItem('P2', JSON.stringify(P2))     
     },[P1, P2])
     
+    //local styles, used into this component
     const Styles = {
         clickableDiv : {
             width : `${size}px`,
@@ -90,13 +96,14 @@ function DrawBoard(props){
     const changedBorder ={
         ...Styles.linebox50, borderTop: '1px solid grey'
     }
-
+    //audio for every move
     function AudioPlay (array){
         var randomNumber = Math.floor(Math.random()*array.length)
         var audio = new Audio(array[randomNumber]);
         audio.play();
     }
 
+    //determines if there's a winner
     function winCondition(){ 
         const wins = [
             [0, 1, 2], 
@@ -134,6 +141,8 @@ function DrawBoard(props){
             }      
     }
 
+    //after the game is over gives point to each player and 
+    //makes imposible to make further moves until the reset button is pressed
     function endGame(){
             let values = props.Values()
              if(!winCondition() && values.every(element => {
@@ -146,6 +155,7 @@ function DrawBoard(props){
             }
     }
 
+    //reaction to clicks 
     function clicked(e, id){
         e.preventDefault();
         if (props.over){
@@ -160,7 +170,7 @@ function DrawBoard(props){
         endGame()
         }     
     }
-   
+   //writes X or O in an empty field when it's clicked
     function renderElement(Element){
             switch(Element){
                 case 1: return 'X'
@@ -169,6 +179,7 @@ function DrawBoard(props){
             }
     }  
 
+    //resets total score 
     function resetScore (){
         setP1(0)
         setP2(0)
@@ -177,6 +188,7 @@ function DrawBoard(props){
     return (
         <div style={Styles.body}>
             <div style={Styles.div}>
+            {/* main board */}
                 <div style={{width: '13px'}}/>
                 <div style={Styles.letters}>
                     A
@@ -230,6 +242,7 @@ function DrawBoard(props){
                    {renderElement(props.Values()[8])}
                 </div>
             </div> 
+            {/* score board */}
             <div style={Styles.personalStats}>
                 <div style={Styles.linebox50}>
                     <div style={Styles.players}>

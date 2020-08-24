@@ -46,6 +46,7 @@ function MovesBoard(props){
             width: '100%'
         },
         select: {
+            color: '#FF5722',
             width : '110px',
             height: '30px',
             backgroundColor: '#FFECB3',
@@ -56,8 +57,8 @@ function MovesBoard(props){
         },
         option: {
             fontSize: 20,
-            color: 'yellow',
-            backgroundColor: 'purple',
+            color: '#FF5722',
+            backgroundColor: '#FFECB3',
         },
     }
 
@@ -72,15 +73,18 @@ function MovesBoard(props){
 
     return (
         <>
+            {/* currently has no use */}
             <div style={Styles.marginDiv}>
-                <select style={Styles.select}>
+                {/* <select style={Styles.select}>
                     <option style={Styles.option} hidden defaultValue='Option'>Option</option>
                     <option style={Styles.option} value='LogIn'>Log in</option>
                     <option style={Styles.option} value='SignUp'>Sign up</option>
                     <option style={Styles.option} value='LogOut'>Log Out</option>
                     <option style={Styles.option} value='Settings'>Settings</option>
-                </select>
+                </select> */}
             </div>
+            {/**/}
+            {/* table to show moves */}
             <div style={Styles.scoreDiv}> 
                 <div style={Styles.lineDiv}>
                     <div style={Styles.innerDiv}>
@@ -102,7 +106,8 @@ function MovesBoard(props){
                         </ul>       
                     </div>               
                 </div>               
-            </div>                  
+            </div>              
+            {/* table ends */}    
         </>
     )
 }
