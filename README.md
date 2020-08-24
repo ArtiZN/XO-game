@@ -1,5 +1,5 @@
 # OneMoreForEducation
-This project is a classical tic-toe game.
+This project is a classical Tic-tac-toe (noughts and crosses) game.
 
 The project can:
 1)  Mark players' moves
