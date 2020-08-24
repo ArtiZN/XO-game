@@ -1,7 +1,7 @@
 # OneMoreForEducation
 This project is a classical Tic-tac-toe (noughts and crosses) game.
 
-The project can:
+The project can do following actions:
 1)  Mark players' moves
 2)  Play realistic sounds when someone moves
 3)  Show who needs to move
